@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <script>
+        let isWhite = false;
+        let lastTime = 0;
+        const frameInterval = 1000 / 120; // 120Hz frame rate
+
+        function toggleBackground(timestamp) {
+            if (timestamp - lastTime >= frameInterval) {
+                isWhite = !isWhite;
+                document.body.style.background = isWhite ? 'white' : 'black';
+                lastTime = timestamp;
+            }
+            requestAnimationFrame(toggleBackground);
+        }
+
+        requestAnimationFrame(toggleBackground);
+    </script>
+</body>
+</html>
